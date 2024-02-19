@@ -1,0 +1,28 @@
+use('BdPeiTP');
+
+// Obter Relatório de vendas para um determinado mês
+var primeiroNomeParceiro = "MARY"; // Substitua pelo nome específico do parceiro
+var ultimoNomeParceiro = "SMITH"
+var ano = 2022; // Substitua pelo ano desejado
+var mes = 03; // Substitua pelo mês desejado (1 para janeiro, 2 para fevereiro, etc.)
+
+db.sales.find({
+  "customer.first_name": primeiroNomeParceiro,
+  "customer.last_name": ultimoNomeParceiro,
+  date: {
+    $gte: new Date(ano, mes - 1, 0),
+    $lt: new Date(ano, mes, 0)
+  }
+}, 
+{
+  _id: 0,
+  invoice_id: 1,
+  date: 1,
+  customer_id: 1,
+  totalVendas: 1,
+  receitaTotal: 1,
+  "sales_lines.id": 1,
+  "sales_lines.product_id": 1,
+  "sales_lines.quantity": 1,
+  "sales_lines.total_with_vat": 1
+});

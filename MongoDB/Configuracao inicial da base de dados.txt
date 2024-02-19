@@ -1,0 +1,22 @@
+// criar a base de dados
+use BdPeiTP;
+
+// criar coleções para armazenar o conteúdo dos ficheiros CSV, estas coleções serão eliminadas após o seu conteúdo ser transferido para as coleções finais
+db.createCollection("address_csv");
+db.createCollection("category_csv");
+db.createCollection("city_csv");
+db.createCollection("country_csv");
+db.createCollection("customer_csv");
+db.createCollection("product_csv");
+db.createCollection("returns_csv");
+db.createCollection("sales_header_csv");
+db.createCollection("sales_lines_csv");
+db.createCollection("sub_category_csv");
+db.createCollection("sub_category_product_csv");
+
+
+/**
+*
+* Após a criação das coleções que irão guardar o conteúdo dos ficheiros .csv, será preciso importar esses ficheiros para a sua respetiva coleção a partir do mongoDB compass
+*
+*/

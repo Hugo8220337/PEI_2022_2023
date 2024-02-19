@@ -1,0 +1,25 @@
+use('BdPeiTP');
+
+// Obter Relatório de devoluções para um determinado mês, de um determinado cliente
+var primeiroNomeParceiro = "LAURA"; // Substitua pelo nome específico do parceiro
+var ultimoNomeParceiro = "RODRIGUEZ"
+var ano = 2022; // Substitua pelo ano desejado
+var mes = 08; // Substitua pelo mês desejado (1 para janeiro, 2 para fevereiro, etc.)
+
+
+
+// Obter Relatório de devoluções para um determinado mês, de um determinado cliente
+var primeiroNomeParceiro = "LAURA"; // Substitua pelo nome específico do parceiro
+var ultimoNomeParceiro = "RODRIGUEZ"
+var ano = 2022; // Substitua pelo ano desejado
+var mes = 08; // Substitua pelo mês desejado (1 para janeiro, 2 para fevereiro, etc.)
+
+
+db.returns.find({
+  "customer.first_name": primeiroNomeParceiro,
+  "customer.last_name": ultimoNomeParceiro,
+  date: {
+    $gte: new Date(ano, mes - 1, 0),
+    $lt: new Date(ano, mes, 0)
+  }
+});
